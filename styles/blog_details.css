@@ -1,0 +1,30 @@
+
+.Blog_details ol{
+   margin-left: 5%;
+}
+
+.Blog_details ol li{
+   margin-top: 2%;
+}
+.Blog_details h3{
+   margin-top: 5%;
+   margin-bottom: 5%;
+}
+.Blog_details {
+   max-width: 73%;
+   margin: auto;
+   margin-bottom: 6%;
+}
+.tagsbutton{
+   margin-top: -2%;
+   margin-bottom: 4%;
+}
+
+
+@media  only screen and (max-width:1000px) {
+   .Blog_details {
+      max-width: 94%;
+      margin: auto;
+      margin-top: 7%;
+  }
+}

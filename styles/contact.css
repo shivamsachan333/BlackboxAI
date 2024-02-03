@@ -1,0 +1,34 @@
+
+.optionsstyle {
+    margin: 14px 0px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 8px;
+
+}
+
+
+.inputsstyle {
+    background-color: transparent;
+    color: white;
+
+    border: 1px solid white;
+}
+
+.forms {
+    border: 1px solid white;
+    border-radius: 13px;
+}
+
+.booking {
+    font-size: 39px;
+}
+
+.contactbadge {
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    max-width: 68%;
+    margin-top: 8%;
+}

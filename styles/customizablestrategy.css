@@ -1,0 +1,30 @@
+.contents_2nd {
+    max-width: 90%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+}
+.contents_2nd{
+    
+}
+
+.contents_2nd ul p {
+    margin-top: 2%;
+}
+.contents_2nd ul li {
+    margin: 10% 0px;
+}
+
+.customzablepara {
+    margin-top: -6%;
+    margin-left: 4%;
+}
+@media only screen and (max-width:900px) {
+    .contents_2nd {
+
+        margin-top: -7%;
+    }
+}

@@ -1,0 +1,45 @@
+.strategycontent {
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+}
+
+.strategycontent h3 {
+    margin-bottom: 3%;
+}
+
+.contentbenifits {
+    margin: auto;
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+
+.uponsub {
+    margin-top: 2%;
+}
+
+.mainsubheading {
+    margin: auto;
+    margin-top: 3%;
+    font-size: 110%;
+}
+.howtouse{
+margin-top: 3%;
+}
+@media only screen and (max-width:650px) {
+    .contentbenifits {
+   
+        font-size: 14px;
+    }
+    .contentoptimisation{
+    
+        font-size: 14px;
+    }
+    .howtouse p{
+        font-size: 14px;
+        }
+        .strategycontent h3{
+          
+            font-size: 18px;
+        }
+}

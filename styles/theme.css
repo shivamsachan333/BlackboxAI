@@ -1,0 +1,96 @@
+body{
+    background-color: black;
+}
+header img{
+    color: transparent;
+    width: 38%;
+    margin-top: -2%;
+
+}
+footer img{
+    color: transparent;
+    width: 30%;
+
+}
+header a{
+    color: whitesmoke !important;
+    font-size: 21px !important;
+}
+
+header a:hover {
+    color: #8991ff !important;
+}
+
+.header {
+    background-color: black;
+    border-bottom: 1px solid #1d1212;
+}
+.font-bold {
+    font-weight: 700;
+    color: whitesmoke;
+}
+.main_heading{
+    padding: 8%;
+
+}
+.navbuttonsign a {
+    padding: 11px !important;
+    border: none !important;
+    margin-top: 12px;
+    margin-right: 13px;
+}
+nav ul li {
+    margin: 0 26px !important;
+}
+nav ul li a{
+    font-size: 18px !important;
+}
+.servicebutton {
+    margin-top: 2% !important;
+    font-size: 20px;
+    font-weight: 900 !important;
+}
+.servicebutton ul{
+    display: block !important;
+}
+.servicebutton ul li{
+    padding: 13px !important;
+}
+
+.dropdownclass ul li {
+    margin: 15px 0px;
+    border: 1px solid gray;
+    border-radius: 6px;
+    padding: 5px;
+    color: black;
+}
+
+.dropdownclass ul {
+    display: flex !important;
+    flex-direction: column;
+    background: gray !important;
+    padding: 15px;
+    border-radius: 10px;
+}
+.servicebutton button{
+    color: white;
+}
+.slidercss{
+    margin-top: 8%;
+    margin-bottom: 8%;
+}
+  
+.main_heading {
+    background-image: url(../public/background/background.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-attachment: fixed; */
+    padding: 15%;
+}
+.badgeclass{
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    max-width: 30%;
+}

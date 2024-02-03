@@ -1,0 +1,19 @@
+service:
+  name: my-nextjs-serverless-app
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+
+functions:
+  app:
+    handler: .serverless_nextjs
+
+plugins:
+  - serverless-nextjs
+
+custom:
+  serverlessNextjs:
+    bucketName: websitehostingupdate
+    nextConfigDir: .

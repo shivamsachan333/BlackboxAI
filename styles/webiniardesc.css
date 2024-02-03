@@ -1,0 +1,143 @@
+.itemdesc {
+    margin-top: -9% !important;
+    margin-bottom: -3%;
+}
+.learnclass li{
+    margin: 3% auto;
+}
+.classfor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 82%;
+    margin: auto;    margin-top: 5%;
+}
+.classfor li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 7%;
+}
+.forboxs{
+    border: 1px solid gray;
+    padding: 13px;
+    border-radius: 10px;
+    width: 350px;
+}
+.forboxs  img{
+    display: flex;
+    margin: auto;
+}
+.forboxs h4{
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 9%;
+    margin-bottom: 3%;
+}
+.secondcontent {
+    margin-top: -10%;
+}
+
+.instructor img{
+    color: transparent;
+    margin-left: 2%;
+}
+.instructorprof{
+    max-width: 90%;
+    display: flex;
+    margin: auto;
+}
+@media only screen and (max-width:1350px) {
+    .forboxs {
+
+        width: 259px;
+    }.forboxs h4 {
+ 
+        font-size: 16px;
+    }.forboxs img {
+     
+        width: 65px;
+    }
+}
+
+@media only screen and (max-width:1010px) {
+    .forboxs {
+
+        width: 150px;
+    }.forboxs img {
+     
+        width: 65px;
+    }
+    .forboxs h4 {
+ 
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width:800px) {
+    .instructor img {
+        margin-left: 0%;
+        max-width: 87% !important;
+        margin-top: 3% !important;
+    }
+}
+@media only screen and (max-width:700px) {
+    .servicecardweb {
+  
+        
+        width: 69%;
+        margin: 2% auto;
+    }
+    .classfor {
+      
+        margin-top: 5%;
+        flex-direction: column;
+    }
+    .forboxs h4 {
+ 
+        font-size: 16px;
+    }.forboxs img {
+     
+        width: 65px;
+    }.forboxs {
+        width: 316px;
+        margin: 16px auto;
+    }
+}
+.help a{
+    border: 1px solid gray;
+    padding: 5px;
+    border-radius: 8px;
+    color: antiquewhite;
+}
+
+@media only screen and (max-width: 500px){
+.servicecardweb {
+    width: 90%;
+    margin: 2% auto;
+}}
+
+@media only screen and (max-width: 800px){
+.instructor img {
+    margin-left: 0%;
+    max-width: 96% !important;
+    margin-top: 3% !important;
+    height: 243px;
+}
+
+.instructorprof {
+    max-width: 98%;
+    display: flex;
+    margin: auto;
+}
+.webfrom{
+    max-width: 90%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+
+}
+
+}

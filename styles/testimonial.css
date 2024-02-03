@@ -1,0 +1,78 @@
+.testiitem {
+    max-width: 100%;
+}
+
+.testi {
+    background: black;
+}
+
+.testi h3 {
+    margin: auto;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: skyblue;
+}
+
+.testiheadline {
+    max-width: 95%;
+}
+
+.testiboxs {
+    background: transparent;
+    border: 1px solid antiquewhite;
+    border-radius: 15px;
+}
+
+.testiboxs p {
+    color: aliceblue;
+}
+
+.testiboxs .names {
+    color: lightgrey;
+}
+
+.testimonialslider {
+    margin-top: -8%;
+}
+
+.testinew{
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: contents;
+}
+.testibutton{
+    margin-top: 10%;
+}
+
+@media only screen and (max-width:1000px) {
+    .testimonialslider {
+
+        margin-top: 8%;
+        margin-bottom: -12%;
+    }
+
+}
+
+@media only screen and (max-width:750px) {
+    .responsiveclass {
+
+        margin: auto;
+    }
+
+}
+
+@media only screen and (max-width:600px) {
+
+    .slidebtn {
+        margin-bottom: 7%;
+    }
+
+}
+
+@media only screen and (max-width: 530px){
+.testimonialslider {
+    margin-top: 8%;
+    margin-bottom: -44%;
+}}

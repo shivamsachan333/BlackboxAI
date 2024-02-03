@@ -1,0 +1,112 @@
+.firstchart .powerbi {
+    /* provide necessary height */
+    height: 85vh;
+}
+.firstchart .strategychart1{
+    margin-top: 18%;
+    margin-bottom: 18%;
+}
+.firstchart iframe{
+width: 100%;
+height: 102vh;
+}
+.contentstrategy{
+    
+
+    max-width: 90%;
+    margin: auto;
+}
+.firstchart .statusBar[_ngcontent-til-c164] .leftPane[_ngcontent-til-c164] {
+
+    display: none;
+}
+.firstchart .statusBar[_ngcontent-kar-c164] .leftPane[_ngcontent-kar-c164] {
+
+    background: black;
+    border: none;
+}
+.firstchart .statusBar[_ngcontent-bhl-c164] .leftPane[_ngcontent-bhl-c164] {
+
+    display: none;
+}
+.firstchart .logoBar .logo{
+
+    display: none;
+}
+.firstchart .logoBar .logo .text {
+    display: none !important;
+}
+.firstchart .statusBar[_ngcontent-sme-c164] .leftPane[_ngcontent-sme-c164] {
+    display: none !important;
+
+}
+
+.statusBar[_ngcontent-sme-c164] {
+    display: none !important;
+}
+
+.firstchart .logoBar {
+    height: 36px;
+    background-color: transparent;
+    border-top: none !important;
+    z-index: 200;
+    display: none !important;
+}
+
+.firstchart .logoBar .logo {
+
+    display: none !important;
+}
+.statusBar[_ngcontent-yqt-c164] .leftPane[_ngcontent-yqt-c164] {
+    flex: 1;
+    display: none;
+}
+
+.logoBar .logo {
+
+    background: black;
+}
+.firstchart {
+    margin-top: -12%;
+    padding-bottom: 12%;
+}
+
+.strategychart2 {
+    margin-top: -52%;
+}
+.displayAreaViewport {
+    background-color: black !important;
+}
+
+
+
+
+.explorationContainer .exploreCanvas .canvasFlexBox .displayAreaContainer .displayAreaViewport {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+}
+
+.strategychart3{
+    margin-top: -52%;
+}
+.statusBar[_ngcontent-yyu-c164] .leftPane[_ngcontent-yyu-c164] {
+
+    background: black;
+}.logoBar .logo .text {
+    padding: 0;
+    cursor: pointer;
+    font-family: 'Segoe UI Semibold',wf_segoe-ui_semibold,helvetica,arial,sans-serif;
+    color: black;
+}
+
+/* .footerclass{
+    margin-top: -19%;
+    background: black;
+} */
+.strategychart4{
+    margin-top: -52%;
+}

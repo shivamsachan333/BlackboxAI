@@ -1,0 +1,11 @@
+.readmorebutton{
+    margin-top: 3%;
+}
+.readmorebutton span{
+    padding: 11px;
+    border-radius: 9px;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    border-color: cadetblue;
+}

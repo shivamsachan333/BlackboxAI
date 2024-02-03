@@ -1,0 +1,58 @@
+
+.servicecardweb {
+        background-color: transparent;
+        border: 1px solid gray;
+        border-radius: 12px;
+        width: 46%;
+        margin: 2% auto;
+   
+}
+.servicecardweb .imgcalss img {
+    width: 100%;
+    margin-bottom: 12%;
+    border: 1px solid gray;
+    border-radius: 12px;
+}
+
+
+.btnclassreg button{
+    outline: 2px solid white;
+    outline-offset: 2px;
+    padding: 5px;
+    margin-top: 4%;
+    border-radius: 3px;
+}
+
+.pricebutton{
+
+    
+margin-left: 66%;
+margin-top: 4%;
+}
+
+.ItemsLists ul{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    margin-top: 7%;
+}
+.itemslistsbutton{
+cursor: pointer !important;
+border: 1px solid gray;
+padding: 12px;
+border-radius: 11px;
+margin: auto;
+}
+.ItemsLists {
+    max-width: 70%;
+    margin: auto;
+    margin-top: -7% !important;
+    margin-bottom: -6%;
+}
+.webinerpage{
+        margin-top: 1%;
+        margin-bottom: -4%;
+ 
+}

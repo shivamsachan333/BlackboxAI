@@ -1,0 +1,13 @@
+.mainpage2{
+    color: transparent;
+    margin: auto;
+    margin-bottom: 3%;
+    margin-top:1%;
+}
+
+.mainpage2div{
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}

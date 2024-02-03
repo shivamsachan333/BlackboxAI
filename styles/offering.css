@@ -1,0 +1,66 @@
+.offeringclass {
+    max-width: 77%;
+    margin: auto;
+    margin-top: 3%;
+}
+.secondclass{
+    background: gray;
+}
+.firstclass{
+    padding: 12px;
+}
+.firstbox {
+    border: 1px solid gray;
+    padding: 12px;
+}
+.secondbox{
+    border: 1px solid gray;
+    border-radius: 12px;
+}
+.offeringclass h6{
+    padding-top: 3%;
+}
+.textchanging{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+@media  only screen and (max-width:1000px) {
+    .offeringclass {
+        display: flex;
+        flex-direction: column;
+    }
+    .firstbox {
+        border: 1px solid gray;
+        margin: auto;
+    }.offeringclass {
+        max-width: 58%;
+        margin: auto;
+        margin-top: 2%;
+    }
+    
+    .brokers{
+        margin-top: 9%;
+    }
+    .firstboxcon{
+        padding: 44px;
+    }.offeringclass h6 {
+        padding-top: 3%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
+}
+@media  only screen and (max-width:600px) {
+    .offeringclass img{
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 540px){
+.offeringclass {
+    max-width: 90%;
+    margin: auto;
+    margin-top: 2%;
+}}
