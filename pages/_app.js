@@ -2,6 +2,7 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import TagManager from "react-gtm-module";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "styles/style.scss";
 import 'styles/theme.css';
 import "styles/footer.css";
@@ -24,8 +25,7 @@ import 'styles/blog_details.css';
 
 
 import 'styles/homeleanding.css';
-
-import { useCallback } from "react";
+import 'styles/Privacy.css';
 import NextNProgress from 'nextjs-progressbar';
 
 
@@ -42,15 +42,7 @@ const App = ({ Component, pageProps }) => {
     }, 5000);
   }, []);
 
-  const particlesInit = useCallback(async engine => {
-    console.log(engine);
- 
-    await loadSlim(engine);
-}, []);
 
-const particlesLoaded = useCallback(async container => {
-    await console.log(container);
-}, []);
 
   return (
     < > 
@@ -79,7 +71,7 @@ const particlesLoaded = useCallback(async container => {
       
       <NextNProgress color="white" />
       <Component {...pageProps} />
-
+      <SpeedInsights />
     </>
   );
 };

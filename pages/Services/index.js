@@ -22,7 +22,11 @@ const Services = () => {
     fetchservices();
   }, []);
   return (
+
     <Base>  
+    {services === null ? (
+            <Loader />
+        ) : 
     <section className="pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
       <div className="container mx-auto cardsstart">
         <div className="-mx-4 flex flex-wrap">
@@ -48,11 +52,11 @@ const Services = () => {
             title={item.Title}
             key={item.Title}
             href="/strategy_trading"
+
+            
             details={item.description}
             icon={
-    
               <Image className="mx-auto" src={item.Image} width="100" height="100" alt="Strategy Trading" />
-              
             }
           />
         )  )}
@@ -74,7 +78,16 @@ const Services = () => {
            <ServiceCard
             title={item.Title}
             key={item.Title}
-            href="/education"
+          
+            href={{
+                pathname: '/Services/[Title]',
+                query: {
+                    Title:item.Title,
+                },
+            }}
+            
+            as={`/Services/${item.Title}`}
+        
             details={item.description}
             icon={
     
@@ -86,7 +99,7 @@ const Services = () => {
        
         </div>
       </div>
-    </section>
+    </section>}
     </Base>
   
   );

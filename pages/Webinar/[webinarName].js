@@ -9,12 +9,10 @@ import { useRouter } from 'next/router';
 import { Button } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { fi } from 'date-fns/locale';
 const WebinarDetail = ({ webinarData }) => {
   const router = useRouter();
   const { webinarName } = router.query;
 
-  // Sample list items
 
   const [Webiniars, setWebiniars] = useState([])
 
@@ -267,6 +265,10 @@ const [successMessage, setSuccessMessage] = useState(null);
 
   return (
       <>
+      {Webiniars === null ? (
+            <Loader />
+        ) : 
+    
           <Base>
               <div className="flex flex-wrap Webiniarblocks" >
                   <ServiceCard
@@ -396,7 +398,7 @@ const [successMessage, setSuccessMessage] = useState(null);
 
 
 
-          </Base>
+          </Base>}
       </>
   )
 };

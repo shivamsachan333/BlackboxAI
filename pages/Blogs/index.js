@@ -31,6 +31,10 @@ const Blogs = () => {
 
   return (
     <Base>
+
+{blogs === null ? (
+            <Loader />
+        ) : 
     <section className="pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]">
       <div className="container mx-auto cardsstart">
         <div className="-mx-4 flex flex-wrap">
@@ -51,7 +55,7 @@ const Blogs = () => {
             <ServiceCard
               key={blog.id}  // Make sure to add a unique key for each item
               title={blog.Title}
-              href_url={`/Blogs/${blog.Title.replace(/\s+/g, '')}`}
+              href_url={`/Blogs/${blog.Title}`}
               details={blog.short_note}
               posted_on={blog.posted_on}
               icon={
@@ -61,7 +65,7 @@ const Blogs = () => {
           ))}
         </div>
       </div>
-    </section>
+    </section>}
   </Base>
 
   );

@@ -13,31 +13,41 @@
     color: white;
 }
 
-.moduleh6{
+.moduleh6 {
     margin-top: 4%;
     font-size: 20px;
 }
-.Modules{
+
+.Modules {
     margin-left: 5%;
 }
 
 
-.Modules_data{
+.Modules_data {
     margin: 1% 0% !important;
     color: white;
     list-style-type: disclosure-closed !important;
 
 }
-.moduleh4{
+
+.moduleh4 {
     margin-top: 4%;
 }
 
+ul li div ul li ul li {
+    margin-left: 12% !important;
+}
+
+ul li div ul li h6 span {
+    margin-left: 6% !important;}
+
 @media only screen and (max-width:1300px) {
     .contents_3rd {
- 
+
         margin-top: 1%;
     }
-    .moduleh6{
+
+    .moduleh6 {
         margin-top: 8%;
         font-size: 15px;
     }
@@ -48,19 +58,20 @@
         max-width: 90%;
 
     }
-    .moduleh6{
+
+    .moduleh6 {
         margin-top: 15%;
         font-size: 15px;
 
     }
-    .Modules_data{
+
+    .Modules_data {
         font-size: 10px;
-    
+
 
     }
 
-.moduleh4 {
-    margin-top: 21%;
+    .moduleh4 {
+        margin-top: 21%;
+    }
 }
-}
-

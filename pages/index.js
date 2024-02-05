@@ -36,7 +36,9 @@ console.log(error)
   return (
     <><Base>
 
-
+{home_heading === null ? (
+            <Loader />
+        ) : 
       <section className="section pb-[50px] main_heading" >
         <div className="container">
           <div className="row text-center">
@@ -67,7 +69,7 @@ heading.Heading
           </div>
         </div>
       </section>
-
+}
 
       <Homestrategy />
   
