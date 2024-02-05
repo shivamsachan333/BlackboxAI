@@ -44,13 +44,18 @@ const Footer = () => {
 
   return (
 
-    <><div className="footerclass">
+    <>
+    {social_media === null ? (
+            <Loader />
+        ) : 
+    
+    <div className="footerclass">
       <hr />
       <footer className="relative bg-blueGray-200 pt-8 pb-6 footerclass">
         <div className="container mx-auto px-4 footer_res">
           <div className="flex flex-wrap text-left lg:text-left">
             <div className="w-full lg:w-6/12 px-4">
-              <h4 className="text-white text-3xl fonat-semibold h2color">
+              <h4 className="text-white text-3xl fonat-semibold h2color hecolorone">
                 Let's keep in touch!
               </h4>
               <h5 className="text-white text-lg mt-0 mb-2 subheadingfooter">
@@ -146,15 +151,15 @@ const Footer = () => {
                       </Link>
                     </li>
 
-                    {/* <li>
+                    <li>
                       <Link
 
-                        href="/career"
+                        href="/privacypolicy/"
                         className="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                       >
-                      Career
+                      Privacy Policy
                       </Link>
-                    </li> */}
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -200,7 +205,11 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-    </div><Script src="https://kit.fontawesome.com/a076d05399.js" /></>
+    </div>
+    }<Script src="https://kit.fontawesome.com/a076d05399.js" />
+    
+    
+    </>
   )
 }
 

@@ -25,7 +25,12 @@ function Homestrategy() {
 
   return (
 
-    <>  <section className="section">
+    <>  
+    
+    {strategy === null ? (
+            <Loader />
+        ) : 
+    <section className="section">
       <div className="container">
         <div className="text-center">
           <h2 className="text-white">Something You Need To Know</h2>
@@ -65,7 +70,7 @@ function Homestrategy() {
               </div></Link>
           ))}
 
-          <Link href='Services'>
+          <Link href='strategy_trading'>
             <div
               className="mt-8 p-5 pb-8 text-center"
             >
@@ -91,7 +96,7 @@ function Homestrategy() {
 
         </div>
       </div>
-    </section></>
+    </section>}</>
   )
 }
 

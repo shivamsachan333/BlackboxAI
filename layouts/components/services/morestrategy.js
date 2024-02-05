@@ -22,7 +22,11 @@ console.log(error)
   },[])
     return (
 
-        <>  <section className="section">
+        <>  
+         {strategy === null ? (
+            <Loader />
+        ) : 
+        <section className="section">
         <div className="container">
        
           <div className="text-center">
@@ -131,7 +135,7 @@ console.log(error)
             ))}
           </div>
         </div>
-      </section></>
+      </section>}</>
     )
 }
 
