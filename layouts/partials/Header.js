@@ -44,7 +44,7 @@ const Header = () => {
     {
       key: "Education",
       label: "Education",
-      href:"/education",
+      href:"/Education",
     }
   ];
 
