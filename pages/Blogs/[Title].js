@@ -12,7 +12,7 @@ const Blogs = () => {
   useEffect(() => {
     async function getsetblogs() {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/Blogs/${Title}/`);
+        const response = await axios.get(`https://trading.work.gd/Blogs/${Title}/`);
         const data = JSON.parse(response.data); // Parse the JSON string
         setBlogs(data);
       } catch (error) {
