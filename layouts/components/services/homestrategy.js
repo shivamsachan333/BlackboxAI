@@ -70,7 +70,7 @@ function Homestrategy() {
               </div></Link>
           ))}
 
-          <Link href='strategy_trading'>
+          <Link href="/Services/Strategy Trading/">
             <div
               className="mt-8 p-5 pb-8 text-center"
             >

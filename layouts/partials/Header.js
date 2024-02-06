@@ -34,12 +34,12 @@ const Header = () => {
     {
       key: "Strategy Trading",
       label:  "Strategy Trading",
-      href:"/strategy_trading",
+      href:"/Services/Strategy Trading/",
     },
     {
       key: "Customizable Strategy",
       label: "Customizable Strategy",
-      href:"/customizable_strategy",
+      href:"/Services/Customizable Strategy/",
     },
     {
       key: "Education",
