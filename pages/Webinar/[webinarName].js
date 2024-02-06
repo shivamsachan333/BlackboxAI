@@ -222,7 +222,7 @@ const [successMessage, setSuccessMessage] = useState(null);
       try {
           console.log('This is form data -------------');
           console.log(formData);
-          const response = await fetch('https://trading.work.gd/webinar_registerations/', {
+          const response = await fetch('http://127.0.0.1:8000/webinar_registerations/', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',

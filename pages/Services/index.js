@@ -51,7 +51,14 @@ const Services = () => {
            <ServiceCard
             title={item.Title}
             key={item.Title}
-            href="/strategy_trading"
+            href={{
+              pathname: '/Services/[Title]',
+              query: {
+                  Title:item.Title,
+              },
+          }}
+          
+          as={`/Services/${item.Title}`}
 
             
             details={item.description}
@@ -64,7 +71,14 @@ const Services = () => {
            <ServiceCard
             title={item.Title}
             key={item.Title}
-            href="/customizable_strategy"
+            href={{
+              pathname: '/Services/[Title]',
+              query: {
+                  Title:item.Title,
+              },
+          }}
+          
+          as={`/Services/${item.Title}`}
             details={item.description}
             icon={
     

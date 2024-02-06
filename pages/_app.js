@@ -27,7 +27,7 @@ import 'styles/blog_details.css';
 import 'styles/homeleanding.css';
 import 'styles/privacy.css';
 import NextNProgress from 'nextjs-progressbar';
-
+import 'styles/boxs.css';
 
 
 const App = ({ Component, pageProps }) => {
