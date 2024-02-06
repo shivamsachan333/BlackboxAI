@@ -21,7 +21,7 @@ const DynamicPage = () => {
   useEffect(() => {
     async function getsetservice() {
       try {
-        const webi = await axios.get(`http://127.0.0.1:8000/whatweOffers/${Title}/`);
+        const webi = await axios.get(`https://trading.work.gd/whatweOffers/${Title}/`);
         setservice(webi.data);
       } catch (error) {
         console.log(error);
