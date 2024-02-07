@@ -65,7 +65,7 @@ const DynamicPage = () => {
   <Base>
       <section className="flex items-center xl:h-screen font-poppins belowaboutus">
         <div className="justify-center flex-1 max-w-6xl py-4 mx-auto lg:py-6 md:px-6">
-          {/* Your non-education-specific content goes here */}
+         
         </div>
       </section>
       <div className="contents_3rd">

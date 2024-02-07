@@ -29,7 +29,7 @@ import 'styles/privacy.css';
 import NextNProgress from 'nextjs-progressbar';
 import 'styles/boxs.css';
 
-
+import 'styles/courses.css'
 const App = ({ Component, pageProps }) => {
 
   const [fontcss] = useState();

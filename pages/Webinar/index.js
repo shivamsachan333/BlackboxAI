@@ -11,18 +11,18 @@ import Image from "next/image";
 import axios from "axios";
 const Webiniar = () => {
 
-    const [Webiniars, setWebiniars] = useState([])
+    const [Webinars, setWebinars] = useState([])
     useEffect(() => {
-        async function getAllWebiniars() {
+        async function getAllWebinars() {
             try {
-                const webi = await axios.get("https://trading.work.gd/Webiniars")
+                const webi = await axios.get("https://trading.work.gd/webinars/")
                 console.log(webi.data);
-                setWebiniars(webi.data)
+                setWebinars(webi.data)
             } catch (error) {
                 console.log(error)
             }
         }
-        getAllWebiniars()
+        getAllWebinars()
     }, [])
 
 
@@ -56,24 +56,24 @@ const Webiniar = () => {
 
 
 
-                            {Webiniars.map((item, i) =>
+                            {Webinars.map((item, i) =>
                                 <ServiceCard
-                                    key={item.webiniar_name}
-                                    title={item.Webiniar_name}
-                                    category={item.Category}
+                                    key={item.webinar_name}
+                                    title={item.webinar_name}
+                                    category={item.category}
                                     price={item.price}
                                     author_name={item.Author_name}
-                                    Webiniar_time={item.Webiniar_time}
-                                    Webiniar_date={item.Webiniar_date}
-                                    image={item.Webiniar_image}
+                                    Webiniar_time={item.time}
+                                    Webiniar_date={item.date}
+                                    image={item.image}
 
 
 
 
-                                    details={item.Webiniar_short_desc}
+                                    details={item.description.substring(0, 200)}
                                     icon={
 
-                                        <Image className="mx-auto" src={item.Webiniar_image} width="100" height="100" alt="Customizable Strategy Trading" />
+                                        <Image className="mx-auto" src={item.image} width="100" height="100" alt={item.webinar_name} />
 
                                     }
                                 />)
@@ -142,7 +142,7 @@ const Webiniar = () => {
 
 export default Webiniar;
 
-const ServiceCard = ({ icon, title, key, category, author_name, Webiniar_date, Webiniar_time, details, price, webiniar_name }) => {
+const ServiceCard = ({ icon, title, key, category, author_name, Webiniar_date, Webiniar_time, details, price, webinar_name }) => {
 
     return (
         <>
@@ -153,7 +153,7 @@ const ServiceCard = ({ icon, title, key, category, author_name, Webiniar_date, W
                     href={{
                         pathname: '/Webinar/[webinarName]',
                         query: {
-                            webiniar_name: webiniar_name,
+                            webinar_name: webinar_name,
                         },
                     }}
 
@@ -175,7 +175,7 @@ const ServiceCard = ({ icon, title, key, category, author_name, Webiniar_date, W
                             <br />
 
                         </h4>
-                        <p className="text-body-color dark:text-dark-6">{details}</p>
+                        <p className="text-body-color dark:text-dark-6">{details} ...</p>
 
                         <div className="flex flex-wrap gap-4 items-center btnclassreg">
 
@@ -185,7 +185,7 @@ const ServiceCard = ({ icon, title, key, category, author_name, Webiniar_date, W
                                     href={{
                                         pathname: '/Webinar/[webinarName]',
                                         query: {
-                                            webiniar_name: webiniar_name,
+                                            webinar_name: webinar_name,
                                         },
                                     }}
 
