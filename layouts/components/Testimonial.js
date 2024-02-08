@@ -11,20 +11,59 @@ import axios from "axios";
 function Testimonial() {
 
 
-  const [testimonial, settestimonial] = useState([])
+  const [testimonial, setTestimonial] = useState([]);
 
-  useEffect(()=>{
-    async function getAlltestimonial(){
-      try{
-        const testimonial = await axios.get("https://trading.work.gd/Testimonial")
-        console.log(testimonial.data);
-        settestimonial(testimonial.data)
-      }catch(error){
-console.log(error)
+  useEffect(() => {
+      const getAllTestimonials = async () => {
+          try {
+              // Check if data is already cached in localStorage
+              const cachedData = localStorage.getItem('cachedTestimonials');
+
+              if (cachedData) {
+                  // If cached data exists, parse and set it
+                  setTestimonial(JSON.parse(cachedData));
+              } else {
+                  // If no cached data exists, fetch data from the API
+                  const response = await axios.get("https://trading.work.gd/Testimonial");
+                  const testimonialData = response.data;
+                  // Cache the fetched data in localStorage
+                  cacheTestimonials(testimonialData);
+                  // Set the data in state
+                  setTestimonial(testimonialData);
+              }
+          } catch (error) {
+              console.error('Error fetching testimonials:', error);
+          }
+      };
+
+      getAllTestimonials();
+  }, []);
+
+  // Function to cache testimonials in localStorage
+  const cacheTestimonials = (data) => {
+      try {
+          // Try to set the item in localStorage
+          localStorage.setItem('cachedTestimonials', JSON.stringify(data));
+      } catch (error) {
+          console.error('Error caching testimonials:', error);
+          // If storing data exceeds quota, clear old data and try again
+          if (error instanceof DOMException && error.code === 22) {
+              console.log('Storage quota exceeded. Clearing cache...');
+              clearCacheAndRetry(data);
+          }
       }
-    }
-    getAlltestimonial()
-  },[])
+  };
+
+  // Function to clear cache and retry caching
+  const clearCacheAndRetry = (data) => {
+      try {
+          // Clear cache and retry caching
+          localStorage.clear();
+          localStorage.setItem('cachedTestimonials', JSON.stringify(data));
+      } catch (error) {
+          console.error('Error clearing cache and retrying caching:', error);
+      }
+  };
 
 
 

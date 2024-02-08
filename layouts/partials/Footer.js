@@ -27,19 +27,59 @@ import axios from "axios";
 const Footer = () => {
 
 
-  const [social_media, setsocial_media] = useState([])
+  const [social_media, setSocialMedia] = useState([]);
 
-  useEffect(() => {
-    async function getAllSocial() {
-      try {
-        const social = await axios.get("https://trading.work.gd/socialMedias");
-        setsocial_media(social.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getAllSocial()
-  }, [])
+    useEffect(() => {
+        const getAllSocial = async () => {
+            try {
+                // Check if data is already cached in localStorage
+                const cachedData = localStorage.getItem('cachedSocialMedia');
+
+                if (cachedData) {
+                    // If cached data exists, parse and set it
+                    setSocialMedia(JSON.parse(cachedData));
+                } else {
+                    // If no cached data exists, fetch data from the API
+                    const response = await axios.get("https://trading.work.gd/socialMedias");
+                    const socialMediaData = response.data;
+                    // Cache the fetched data in localStorage
+                    cacheSocialMedia(socialMediaData);
+                    // Set the data in state
+                    setSocialMedia(socialMediaData);
+                }
+            } catch (error) {
+                console.error('Error fetching social media data:', error);
+            }
+        };
+
+        getAllSocial();
+    }, []);
+
+    // Function to cache social media data in localStorage
+    const cacheSocialMedia = (data) => {
+        try {
+            // Try to set the item in localStorage
+            localStorage.setItem('cachedSocialMedia', JSON.stringify(data));
+        } catch (error) {
+            console.error('Error caching social media data:', error);
+            // If storing data exceeds quota, clear old data and try again
+            if (error instanceof DOMException && error.code === 22) {
+                console.log('Storage quota exceeded. Clearing cache...');
+                clearCacheAndRetry(data);
+            }
+        }
+    };
+
+    // Function to clear cache and retry caching
+    const clearCacheAndRetry = (data) => {
+        try {
+            // Clear cache and retry caching
+            localStorage.clear();
+            localStorage.setItem('cachedSocialMedia', JSON.stringify(data));
+        } catch (error) {
+            console.error('Error clearing cache and retrying caching:', error);
+        }
+    };
 
 
   return (

@@ -6,20 +6,59 @@ import { useState,useEffect } from "react";
 import axios from "axios";
 function Morestrategy(){
 
-  const [strategy, setstrategy] = useState([])
+  const [strategy, setStrategy] = useState([]);
 
-  useEffect(()=>{
-    async function getAllstrategy(){
-      try{
-        const strategy = await axios.get("https://trading.work.gd/Strategie")
-        console.log(strategy.data);
-        setstrategy(strategy.data)
-      }catch(error){
-console.log(error)
+  useEffect(() => {
+      const getAllStrategy = async () => {
+          try {
+              // Check if data is already cached in localStorage
+              const cachedData = localStorage.getItem('cachedStrategy');
+
+              if (cachedData) {
+                  // If cached data exists, parse and set it
+                  setStrategy(JSON.parse(cachedData));
+              } else {
+                  // If no cached data exists, fetch data from the API
+                  const response = await axios.get("https://trading.work.gd/Strategie");
+                  const strategyData = response.data;
+                  // Cache the fetched data in localStorage
+                  cacheStrategy(strategyData);
+                  // Set the data in state
+                  setStrategy(strategyData);
+              }
+          } catch (error) {
+              console.error('Error fetching strategy:', error);
+          }
+      };
+
+      getAllStrategy();
+  }, []);
+
+  // Function to cache strategy in localStorage
+  const cacheStrategy = (data) => {
+      try {
+          // Try to set the item in localStorage
+          localStorage.setItem('cachedStrategy', JSON.stringify(data));
+      } catch (error) {
+          console.error('Error caching strategy:', error);
+          // If storing data exceeds quota, clear old data and try again
+          if (error instanceof DOMException && error.code === 22) {
+              console.log('Storage quota exceeded. Clearing cache...');
+              clearCacheAndRetry(data);
+          }
       }
-    }
-    getAllstrategy()
-  },[])
+  };
+
+  // Function to clear cache and retry caching
+  const clearCacheAndRetry = (data) => {
+      try {
+          // Clear cache and retry caching
+          localStorage.clear();
+          localStorage.setItem('cachedStrategy', JSON.stringify(data));
+      } catch (error) {
+          console.error('Error clearing cache and retrying caching:', error);
+      }
+  };
     return (
 
         <>  
