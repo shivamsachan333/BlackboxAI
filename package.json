@@ -17,6 +17,7 @@
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.1.1",
     "@nextui-org/react": "^2.2.9",
+    "@stripe/stripe-js": "^2.4.0",
     "@swc/helpers": "^0.5.3",
     "@vercel/speed-insights": "^1.0.9",
     "axios": "^1.6.5",

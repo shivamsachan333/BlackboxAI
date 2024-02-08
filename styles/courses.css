@@ -93,6 +93,24 @@ background: #25d366;
     font-size: 31px;
     padding: 11px;
 }
+
+
+.module_text{
+    font-size: 39%;
+}
+.subtitles h5{
+    font-size: 99%;}
+
+
+
+    .course_register{
+        text-align: center;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column-reverse;
+    }
 @media only screen and (max-width:600px) {
     .courses h3{
         font-size: 18px;
