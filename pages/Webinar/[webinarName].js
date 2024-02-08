@@ -15,21 +15,60 @@ const WebinarDetail = ({ webinarData }) => {
     const { webinarName } = router.query;
 
 
-    const [Webinars, setWebinars] = useState([])
+   const [Webinars, setWebinars] = useState([]);
 
     useEffect(() => {
-        async function getAllWebinars() {
+        const getAllWebinars = async () => {
             try {
-                console.log(webinarName)
-                const webi = await axios.get(`https://trading.work.gd/webinars/${webinarName}/`)
-                console.log(webi.data);
-                setWebinars(webi.data)
+                // Check if data is already cached in localStorage
+                const cachedData = localStorage.getItem(`cachedWebinars-${webinarName}`);
+
+                if (cachedData) {
+                    // If cached data exists, parse and set it
+                    setWebinars(JSON.parse(cachedData));
+                } else {
+                    // If no cached data exists, fetch data from the API
+                    const response = await axios.get(`https://trading.work.gd/webinars/${webinarName}/`);
+                    const webinarsData = response.data;
+                    // Cache the fetched data in localStorage
+                    cacheWebinars(webinarName, webinarsData);
+                    // Set the data in state
+                    setWebinars(webinarsData);
+                }
             } catch (error) {
-                console.log(error)
+                console.error('Error fetching webinars:', error);
+            }
+        };
+
+        getAllWebinars();
+    }, [webinarName]);
+
+    // Function to cache webinars in localStorage
+    const cacheWebinars = (webinarName, data) => {
+        try {
+            // Try to set the item in localStorage
+            localStorage.setItem(`cachedWebinars-${webinarName}`, JSON.stringify(data));
+        } catch (error) {
+            console.error('Error caching webinars:', error);
+            // If storing data exceeds quota, clear old data and try again
+            if (error instanceof DOMException && error.code === 22) {
+                console.log('Storage quota exceeded. Clearing cache...');
+                clearCacheAndRetry(webinarName, data);
             }
         }
-        getAllWebinars()
-    }, [])
+    };
+
+    // Function to clear cache and retry caching
+    const clearCacheAndRetry = (webinarName, data) => {
+        try {
+            // Clear cache and retry caching
+            localStorage.clear();
+            localStorage.setItem(`cachedWebinars-${webinarName}`, JSON.stringify(data));
+        } catch (error) {
+            console.error('Error clearing cache and retrying caching:', error);
+        }
+    };
+
     console.log(Webinars.webinar_name)
 
     const [selectedItem, setSelectedItem] = useState("Overview");

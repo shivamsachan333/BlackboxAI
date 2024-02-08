@@ -4,9 +4,7 @@ import Base from "../../layouts/Baseof";
 import "swiper/swiper.min.css";
 
 
-import { useState, useEffect } from "react";
 
-import axios from "axios";
 
 
 

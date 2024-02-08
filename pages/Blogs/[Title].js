@@ -5,42 +5,49 @@ import { useRouter } from 'next/router';
 import axios from "axios";
 
 const Blogs = () => {
+  const Loader = () => (
+    <div className="loader">
+      {/* Add your loader animation or message here */}
+      Loading...
+    </div>
+  );
   const router = useRouter();
   const { Title } = router.query;
-  const [blogs, setBlogs] = useState([]);
+  const [blogData, setBlogData] = useState(null);
 
   useEffect(() => {
-    async function getsetblogs() {
-      try {
-        const response = await axios.get(`https://trading.work.gd/Blogs/${Title}/`);
-        const data = JSON.parse(response.data); // Parse the JSON string
-        setBlogs(data);
-      } catch (error) {
-        console.log(error);
-      }
+    if (Title) {
+      const formattedTitle = Title; // Replace %20 with space
+      fetch(`https://trading.work.gd/Blogs/${formattedTitle}/`)
+        .then(response => response.json())
+        .then(data => {
+          setBlogData(data);
+        })
+        .catch(error => {
+          console.error('Error fetching blog data:', error);
+        });
     }
-    getsetblogs();
   }, [Title]);
-
+console.log(blogData)
   return (
    
     <Base>
 
-{blogs === null ? (
+{blogData === null ? (
             <Loader />
         ) : 
       <div>
-        {Array.isArray(blogs) && blogs.map(blog => (
+       
           
-      <div className='Blog_details' key={blog.pk}>
-      <div className="maintitles "><h3 className="text-white">{blog.fields.Title}</h3></div>
+      <div className='Blog_details' key={blogData.pk}>
+      <div className="maintitles "><h3 className="text-white">{blogData.Title}</h3></div>
       <div className="tagsbutton">
 
 
 
 
         <div className="readmorebutton">
-          {blog.fields.Tages.split(',').map((tag, index) => (
+          {blogData.Tages.split(',').map((tag, index) => (
             <span
               key={index}
               className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400"
@@ -53,11 +60,11 @@ const Blogs = () => {
 
 
       </div>
-      <div dangerouslySetInnerHTML={{ __html: blog.fields.Description }} />
+      <div dangerouslySetInnerHTML={{ __html: blogData.Description }} />
       <div className="tagsbutton">
 
         <div className="readmorebutton">
-          {blog.fields.Tages.split(',').map((tag, index) => (
+          {blogData.Tages.split(',').map((tag, index) => (
             <span
               key={index}
               className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400"
@@ -69,7 +76,7 @@ const Blogs = () => {
 
       </div>
     </div>
-        ))}
+        
       </div>
 }
 
@@ -77,4 +84,24 @@ const Blogs = () => {
   );
 };
 
+
+
+
 export default Blogs;
+
+export async function getServerSideProps(context) {
+  const { params } = context;
+  const { Title } = params || {}; // Destructure with default value
+
+  if (!Title) {
+      return {
+          notFound: true, // Handle the case when course_name is not available
+      };
+  }
+
+  return {
+      props: {
+        Title,
+      },
+  };
+}

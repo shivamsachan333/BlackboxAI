@@ -16,21 +16,60 @@ import axios from "axios";
 
 
 const Home = () => {
-  
-  const [home_heading, sethome_heading] = useState([])
+  const [home_heading, sethome_heading] = useState([]);
 
-  useEffect(()=>{
-    async function getAllHeading(){
-      try{
-        const heading = await axios.get("https://trading.work.gd/home")
-        console.log(heading.data);
-        sethome_heading(heading.data)
-      }catch(error){
-console.log(error)
+  useEffect(() => {
+    const getAllHeading = async () => {
+      try {
+        // Check if data is already cached in localStorage
+        const cachedData = localStorage.getItem('homeHeading');
+
+        if (cachedData) {
+          // If cached data exists, parse and set it
+          sethome_heading(JSON.parse(cachedData));
+        } else {
+          // If no cached data exists, fetch data from the API
+          const response = await axios.get("https://trading.work.gd/home");
+          const headingData = response.data;
+          // Cache the fetched data in localStorage
+          cacheHomeHeading(headingData);
+          // Set the data in state
+          sethome_heading(headingData);
+        }
+      } catch (error) {
+        console.error('Error fetching home heading:', error);
+      }
+    };
+
+    getAllHeading();
+  }, []);
+
+  // Function to cache home heading in localStorage
+  const cacheHomeHeading = (data) => {
+    try {
+      // Try to set the item in localStorage
+      localStorage.setItem('homeHeading', JSON.stringify(data));
+    } catch (error) {
+      console.error('Error caching home heading:', error);
+      // If storing data exceeds quota, clear old data and try again
+      if (error instanceof DOMException && error.code === 22) {
+        console.log('Storage quota exceeded. Clearing cache...');
+        clearCacheAndRetry(data);
       }
     }
-    getAllHeading()
-  },[])
+  };
+
+  // Function to clear cache and retry caching
+  const clearCacheAndRetry = (data) => {
+    try {
+      // Clear cache and retry caching
+      localStorage.clear();
+      localStorage.setItem('homeHeading', JSON.stringify(data));
+    } catch (error) {
+      console.error('Error clearing cache and retrying caching:', error);
+    }
+  };
+
 
 
   return (

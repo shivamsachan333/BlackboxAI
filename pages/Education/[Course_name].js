@@ -18,18 +18,55 @@ const DynamicPage = ({ course }) => {
     const router = useRouter();
     const { Course_name } = router.query;
 
-    const [course_info, setcourse_info] = useState(null); // Initialize with null
+    const [course_info, setCourseInfo] = useState(null); // Initialize with null
+
     useEffect(() => {
-        async function getsetcourse_info() {
+        const getCourseInfo = async () => {
             try {
-                const webi = await axios.get(`https://trading.work.gd/courses/${Course_name}/`);
-                setcourse_info(webi.data);
+                // Fetch course details from the API
+                const response = await axios.get(`https://trading.work.gd/courses/${Course_name}/`);
+                const data = response.data;
+                // Set the fetched data in state
+                setCourseInfo(data);
+                // Cache the fetched data in localStorage
+                cacheCourseInfo(Course_name, data);
             } catch (error) {
-                console.log(error);
+                console.error('Error fetching course details:', error);
+            }
+        };
+
+        getCourseInfo();
+    }, [Course_name]);
+
+    // Function to cache course details in localStorage
+    const cacheCourseInfo = (courseName, data) => {
+        try {
+            // Try to set the item in localStorage
+            localStorage.setItem(`cachedCourse-${courseName}`, JSON.stringify(data));
+        } catch (error) {
+            console.error('Error caching course details:', error);
+            // If storing data exceeds quota, clear old data and try again
+            if (error instanceof DOMException && error.code === 22) {
+                console.log('Storage quota exceeded. Clearing cache...');
+                clearCacheAndRetry(courseName, data);
             }
         }
-        getsetcourse_info();
-    }, [Course_name]);
+    };
+
+    // Function to clear cache and retry caching
+    const clearCacheAndRetry = (courseName, data) => {
+        try {
+            // Clear cache and retry caching
+            localStorage.clear();
+            localStorage.setItem(`cachedCourse-${courseName}`, JSON.stringify(data));
+        } catch (error) {
+            console.error('Error clearing cache and retrying caching:', error);
+        }
+    };
+
+
+
+
     console.log("course name is ")
     console.log("course name is ", course_info);
     const [formErrors, setFormErrors] = useState(null);
