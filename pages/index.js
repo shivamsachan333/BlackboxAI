@@ -12,8 +12,18 @@ import Homestrategy from '../layouts/components/services/homestrategy';
 import { useState,useEffect } from "react";
 
 import axios from "axios";
+import { createClient } from 'redis';
 
+const client = createClient({
+    password: 'xMcPNmYXZVsW9zuRC2wJ5h8pUBGFUtzS',
+    socket: {
+        host: 'redis-11972.c212.ap-south-1-1.ec2.cloud.redislabs.com',
+        port: 11972
+    }
+});
 
+console.log("Cliend is ")
+console.log(client)
 
 const Home = () => {
   const [home_heading, sethome_heading] = useState([]);
