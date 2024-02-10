@@ -81,6 +81,9 @@ const Boxs = () => {
 
 
         {courses.map((course) => {
+            var box_img = course.course_poster
+            box_img = box_img.replace("http://", "https://");
+            console.log(box_img)
     return (
         <div key={course.id}>
             <Link href={`/Education/${encodeURIComponent(course.course_name)}`}>
@@ -89,7 +92,7 @@ const Boxs = () => {
                         width={400}
                         height={400}
                         alt={course.course_name}
-                        src={course.course_poster}
+                        src={box_img}
                     />
                     <h3 className="text-white">{course.course_name}</h3>
                 </div>

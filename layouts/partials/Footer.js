@@ -200,6 +200,15 @@ const Footer = () => {
                       Privacy Policy
                       </Link>
                     </li>
+                    <li>
+                      <Link
+
+                        href="/termsandcondition/"
+                        className="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      >
+                      Terms & Condition
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </div>
