@@ -209,6 +209,27 @@ const Footer = () => {
                       Terms & Condition
                       </Link>
                     </li>
+
+              
+         
+                    <li>
+                      <Link
+
+                        href="/cancellationpolicy/"
+                        className="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      >
+                    Cancellation & Refund Policy
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+
+                        href="/shippingdelivery/"
+                        className="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      >
+          Shipping & Delivery Policy
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </div>
