@@ -71,30 +71,12 @@ function Homestrategy() {
       ) :
         <section className="section">
           <div className="container">
-            <div className="text-center">
-              <h2 className="text-white">Something You Need To Know</h2>
-            </div>
+           
             <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
              
               ))}
 
-              <Link href="/Services/Strategy Trading/">
-                <div
-                  className="mt-8 p-5 pb-8 text-center"
-                >
-                  <Image
-                    className="mx-auto"
-                    src="/icons/more.svg"
-                    width={50}
-                    height={50}
-                    alt="Know More" />
-
-                  <div className="mt-4">
-                    <h5 className="text-white" ><b>More +</b></h5>
-                    <p className="mt-3 text-white">Click to know more about our Strategies</p>
-                  </div>
-                </div>
-              </Link>
+             
 
 
 
