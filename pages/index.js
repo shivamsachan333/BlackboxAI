@@ -120,7 +120,7 @@ heading.Heading
       </section>
 }
 
-      // <Homestrategy />
+<Homestrategy />
   
   
           
